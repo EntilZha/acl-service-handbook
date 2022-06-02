@@ -1,0 +1,6 @@
+[book]
+authors = ["Pedro Rodriguez"]
+language = "en"
+multilingual = false
+src = "src"
+title = "ACL Workshops Handbook"
