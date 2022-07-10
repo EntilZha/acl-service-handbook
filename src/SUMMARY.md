@@ -1,3 +1,6 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Reviewing](./reviewing.md)
+- [Area Chairing](./area_chairing.md)
+- [Session Chairing](./session_chairing.md)
+- [Workshop Organizing](./workshop_organizing.md)
