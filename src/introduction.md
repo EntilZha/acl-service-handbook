@@ -17,3 +17,8 @@ To kickstart work on this handbook, Pedro Rodriguez and Zeerak Talat will be run
 
 For this, we would like to gather community members with experience in these roles to help kickstart guides for each of these.
 These pages should include basic information such as expectations as well as useful advice.
+
+# Contributing
+
+The handbook is hosted on github pages at https://entilzha.github.io/acl-service-handbook/.
+To contribute, make a pull request or issue at https://github.com/entilzha/acl-service-handbook
