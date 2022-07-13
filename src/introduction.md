@@ -9,7 +9,12 @@ For example, this book will cover the essential components of being a first-time
 - Workshop Organizer
 - Tutorial Organizer
 
-We hope that this list will grow over time with community contributions, and also serve as a way to collect the excellent guidance that already exists, but that may be hard to find.
+Why create another resource?
+The primary goal of this handbook is to collect useful information for ACL service in one place.
+While there are many excellent resources already, we want to make it easy to (1) find basic information about how to do each of these and (2) have a community maintained listing of helpful resources for each of these.
+For example, we will provide a general overview of reviewing, specifically intended to explain the process to 1st time reviewers, but will defer questions like "how to write a good review" to the many excellent, existing resources.
+On the other hand, some information is usually passed adhoc (e.g., how to run a conference session or important steps in organizing a workshop), so we believe having this information easily accessible would be great.
+
 
 # Kickstart at NAACL 2022
 
