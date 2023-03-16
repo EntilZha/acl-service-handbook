@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ACL Service Handbook</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="reviewing.html"><strong aria-hidden="true">2.</strong> Reviewing</a></li><li class="chapter-item expanded "><a href="area_chairing.html"><strong aria-hidden="true">3.</strong> Area Chairing</a></li><li class="chapter-item expanded "><a href="session_chairing.html"><strong aria-hidden="true">4.</strong> Session Chairing</a></li><li class="chapter-item expanded "><a href="workshop_organizing.html"><strong aria-hidden="true">5.</strong> Workshop Organizing</a></li><li class="chapter-item expanded "><a href="miniconf.html"><strong aria-hidden="true">6.</strong> Using Miniconf</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ACL Service Handbook</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This handbook is a community driven effort to provide guidance on how to participate in various forms of service related to the ACL, especially for the first time.
+For example, this book will cover the essential components of being a first-time:</p>
+<ul>
+<li>Conference reviewer</li>
+<li>Area chair</li>
+<li>Session Chair</li>
+<li>Workshop Organizer</li>
+<li>Tutorial Organizer</li>
+</ul>
+<p>Why create another resource?
+The primary goal of this handbook is to collect useful information for ACL service in one place.
+While there are many excellent resources already, we want to make it easy to (1) find basic information about how to do each of these and (2) have a community maintained listing of helpful resources for each of these.
+For example, we will provide a general overview of reviewing, specifically intended to explain the process to 1st time reviewers, but will defer questions like &quot;how to write a good review&quot; to the many excellent, existing resources.
+On the other hand, some information is usually passed adhoc (e.g., how to run a conference session or important steps in organizing a workshop), so we believe having this information easily accessible would be great.</p>
+<p>There already is an <a href="https://aclweb.org/adminwiki/index.php?title=Conference_Handbook">ACL conference handbook</a>, which contains a lot of helpful information.
+Where possible, our goal is to update this information as well as include direction links to relevant pages.
+Ideally, this will improve the discoverability of existing resources, while keeping a handbook format that is geared towards &quot;as a first time X, what do I need to do?&quot;</p>
+<h2 id="kickstart-at-naacl-2022"><a class="header" href="#kickstart-at-naacl-2022">Kickstart at NAACL 2022</a></h2>
+<p>To kickstart work on this handbook, Pedro Rodriguez and Zeerak Talat will be running a 1-2 hour session starting at 14:00 on Wednesday July 13 (Room TBD).</p>
+<p>For this, we would like to gather community members with experience in these roles to help kickstart guides for each of these.
+These pages should include basic information such as expectations as well as useful advice.</p>
+<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
+<p>The handbook is hosted on github pages at https://entilzha.github.io/acl-service-handbook/.
+To contribute, make a pull request or issue at https://github.com/entilzha/acl-service-handbook</p>
+<h2 id="existing-resources"><a class="header" href="#existing-resources">Existing Resources</a></h2>
+<ul>
+<li><a href="https://aclweb.org/adminwiki/index.php?title=Conference_Handbook">ACL Conference Handbook</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reviewing"><a class="header" href="#reviewing">Reviewing</a></h1>
+<p>Reviewing is a core component of peer reviewed conferences.
+TODO: Add description</p>
+<p>In this handbook, we will outline what reviewing generally is, but lean more heavily into providing references to the excellent resources that already exist for reviewing.</p>
+<h2 id="todo"><a class="header" href="#todo">Todo</a></h2>
+<ul>
+<li>Add general guide</li>
+<li>Add links to more in depth resources</li>
+</ul>
+<h2 id="resources"><a class="header" href="#resources">Resources</a></h2>
+<ul>
+<li><a href="https://aclanthology.org/2020.acl-tutorials.4/">ACL 2020 Tutorial: Reviewing Natural Language Processing Research</a></li>
+<li><a href="https://aclrollingreview.org/reviewertutorial">How to review for ACL Rolling Review</a></li>
+<li><a href="https://2020.emnlp.org/blog/2020-05-17-write-good-reviews">Advice on Reviewing for EMNLP 2020</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="area-chairing"><a class="header" href="#area-chairing">Area Chairing</a></h1>
+<p>As you continue to review more, at some point you may be asked to serve as an area chair.</p>
+<h2 id="summary-of-role-and-duties"><a class="header" href="#summary-of-role-and-duties">Summary of Role and Duties</a></h2>
+<p>The primary role of an area chair is to oversee the reviewing of papers in a particular area.
+This includes:</p>
+<ul>
+<li>Insuring reviews are completed on time</li>
+<li>Chasing down reviewers when this is not done in time</li>
+<li>Finding emergency reviewers to replace absent reviewers</li>
+<li>Insuring the reviews reach a minimal quality bar</li>
+<li>Writing Meta Reviews that program chairs will use to make final acceptance decisions</li>
+</ul>
+<h2 id="timeline"><a class="header" href="#timeline">Timeline</a></h2>
+<p>The timeline will vary from conference to conference, but using <a href="https://coling2022.org/">COLING22</a> as an example (before it was modified/delayed):</p>
+<ul>
+<li>17 May: Submission Deadline</li>
+<li>July 8: Review Deadline</li>
+<li>July 9-15: Author Rebuttal Period</li>
+<li>July 16-23: Final Reviewing</li>
+<li>July 24-August 5: SACs Make Recommendations in their track</li>
+<li>August 6 - 12: Program Chairs compile SAC Decisions</li>
+<li>15 August: Notification of Acceptance</li>
+</ul>
+<h2 id="checking-reviews"><a class="header" href="#checking-reviews">Checking Reviews</a></h2>
+<h2 id="chasing-down-reviewers"><a class="header" href="#chasing-down-reviewers">Chasing Down Reviewers</a></h2>
+<h2 id="finding-emergency-reviewers"><a class="header" href="#finding-emergency-reviewers">Finding Emergency Reviewers</a></h2>
+<h2 id="writing-meta-reviews"><a class="header" href="#writing-meta-reviews">Writing Meta Reviews</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="session-chairing"><a class="header" href="#session-chairing">Session Chairing</a></h1>
+<h2 id="todo-1"><a class="header" href="#todo-1">Todo</a></h2>
+<ul>
+<li>Add basic information on what session chairing is</li>
+<li>Add tips on how to make sessions run smoothly</li>
+</ul>
+<h2 id="resources-1"><a class="header" href="#resources-1">Resources</a></h2>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1SaQu5e7hYv5P5OjXecq_Pgcb8PnvUnldnwLOt9kqCpw/edit#slide=id.g1350159feb2_0_34">NAACL 2022 Presenter and Session Chair Instructions</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="workshop-organizing"><a class="header" href="#workshop-organizing">Workshop Organizing</a></h1>
+<p>The general chair of each conference invites <strong>workshop chairs</strong>.
+Here we use &quot;workshops&quot; also to refer to co-located conferences (e.g., CoNLL and WMT).
+Around the end of the calendar year, the workshop chairs of conferences in the next year (usually ACL, EMNLP, COLING, NAACL, EACL and AACL) issue a joint call for workshop proposals.
+We assume conferences are hybrid (in-person and virtual), and so are workshops. Deviations are possible, but must be clarified early.
+<a href="https://github.com/rycolab/aclpub2">aclpub2</a> is used to compile the proceedings. Workshops are expected to provide all the input files in designated metadata repositories and ensure they compile.</p>
+<h2 id="role-and-duties-of-workshop-chairs"><a class="header" href="#role-and-duties-of-workshop-chairs">Role and Duties of Workshop Chairs</a></h2>
+<h3 id="joint-duties-of-workshop-chairs-for-a-calendar-year"><a class="header" href="#joint-duties-of-workshop-chairs-for-a-calendar-year">Joint Duties of Workshop Chairs for a Calendar Year</a></h3>
+<ul>
+<li>Consult with Jennifer Rachford and last year's workshop chairs to ensure these guidelines are up-to-date</li>
+<li>Create a mailing list or Google Group for all workshop chairs of the calendar year (e.g., <code>workshop-chairs-&lt;year&gt;@googlegroups.com</code>)</li>
+<li>Obtain registration and attendance statistics from recent years</li>
+<li>Hold an online survey among ACL members about likely workshop attendance</li>
+<li>Issue a joint call for workshop proposals</li>
+<li>Set up a submission site for workshop proposals (so far this has always been on SoftConf START)</li>
+<li>Review the submitted proposals and jointly decide on selected workshops and their assignment to conferences</li>
+</ul>
+<h3 id="duties-of-workshop-chairs-for-a-conference"><a class="header" href="#duties-of-workshop-chairs-for-a-conference">Duties of Workshop Chairs for a Conference</a></h3>
+<ul>
+<li>Create a mailing list or Google Group for all workshop organizers of the conference</li>
+<li>Create a Slack workspace for all workshop organizers of the conference</li>
+<li>Find out the layout of the venue (how many rooms and their capacity)</li>
+<li>Send the list of accepted workshops to the website chair so that they are put on the website</li>
+<li>Coordinate with the general chair of the conference to get the important dates for all workshops (submission deadline, notification deadline, camera-ready deadline, proceeding deadline)</li>
+<li>Communicate the instructions to the workshop organziers for assembling the materials for the proceedings, handbook, website and virtual platform (<a href="https://docs.google.com/document/d/18AUrckT7HgO9e4J9P_P4cH4t5iZ0Rh5rGT3PyV35QQA/edit?usp=sharing">example</a>)</li>
+<li>Prepare a coordination sheet for all conference workshops (<a href="https://docs.google.com/spreadsheets/d/1qGfDoY4YUJuZ4dGjvut37xeRdbserDUQ_DqXrTabRTY/edit?usp=sharing">example</a>), containing the following information, to be filled in or verified by the workshop organizers:
+<ul>
+<li>Workshop ID (<code>W1</code>, <code>W2</code> etc.)</li>
+<li>Abbreviation</li>
+<li>Full name of the workshop (including ordinal number if relevant)</li>
+<li>Full names, contact details, GitHub usernames and SoftConf usernames of all workshop organizers</li>
+<li>Name of book chair (person responsible for assembling metadata)</li>
+<li>URL of submission site for the workshop</li>
+<li>Workshop website URL</li>
+<li>Duration in days</li>
+<li>Preferred day (if a single-day workshop)</li>
+<li>Estimated number of physical posters</li>
+<li>Whether the workshop is in-person, virtual only or hybrid</li>
+<li>Metadata repository on GitHub (see below)</li>
+<li>Name of invited speaker with waived registration fees (one per workshop)</li>
+</ul>
+</li>
+<li>Assign workshops to days among the two days following or preceding the main conference</li>
+<li>Ask the conference publication chairs to create a GitHub organization for the conference</li>
+<li>Under the GitHub organization, create a repository for each workshop, which will contain the metadata for the proceedings, handbook, website and virtual platform (<a href="https://github.com/rycolab/aclpub2/tree/main/examples/sigdial">example</a>):</li>
+<li>Ask workshop organziers to fill in the following files in their metadata repository as soon as possible:
+<ul>
+<li><code>conference_details.yml</code></li>
+<li><code>organizing_committee.yml</code></li>
+<li><code>program_committee.yml</code></li>
+</ul>
+</li>
+<li>Issue attendance survey to all authors of accepted workshop papers and provide the workshop organizers with access to responses</li>
+<li>Provide the list of book titles to Jennifer Rachford to issue ISBNs, and add the ISBNs to each workshop's <code>conference_details.yml</code></li>
+<li>Ask Jennifer Rachford how to handle waived registration fees - either through a coupon code or with a special registration form checkbox</li>
+<li>Coordinate requirements for space and in-person poster presentations with the local organizers</li>
+<li>Inform workshop organizers about poster board sizes</li>
+<li>Coordinate requirements for uploaded materials from authors, virtual poster space and Zoom room with the virtual platform provider (e.g., Underline)</li>
+<li>Receive list of Findings papers from program chairs and select papers to suggest to workshops for presentation</li>
+<li>Ask workshop organziers to fill in the following files in their metadata repository after they make acceptance decisions:
+<ul>
+<li><code>papers.yml</code></li>
+<li><code>program.yml</code></li>
+<li><code>invited_talks.yml</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="role-and-duties-of-workshop-organizers"><a class="header" href="#role-and-duties-of-workshop-organizers">Role and Duties of Workshop Organizers</a></h2>
+<ul>
+<li>Submit workshop proposal to the joint call</li>
+<li>Publicizing the workshop</li>
+<li>Reviewing submissions</li>
+<li>Producing the camera-ready workshop proceedings</li>
+<li>Organizing the event itself</li>
+<li>Ensure that all participants are aware of <a href="https://www.aclweb.org/adminwiki/index.php/Anti-Harassment_Policy">ACL's anti-harassment policy</a></li>
+<li>Commit to all deadlines provided by the workshop chairs</li>
+<li>Nominate a <em>book chair</em> responsible for assembling the materials for the proceedings, handbook, website and virtual platform</li>
+<li>Create a website for the workshop and share the URL with the workshop chairs</li>
+<li>Create a submission platform for workshop papers: either
+<ul>
+<li>Set up OpenReview (free) and manage reviewing yourself: <a href="https://openreview.net/group?id=OpenReview.net/Support">form</a></li>
+<li>Set up Softconf (paid by ACL) and manage reviewing yourself: ask the workshop chair to help, providing them with the following information (via the coordination sheet):
+<ul>
+<li>full name of the workshop</li>
+<li>short name for submission site URL</li>
+<li>softconf usernames of the organizers</li>
+</ul>
+</li>
+<li>Receive submissions from <a href="https://aclrollingreview.org/organizers">ACL Rolling Review</a> (free, and you do not need to manage reviewing yourself): contact the <a href="mailto:editors@aclrollingreview.org">ARR Editors</a>, providing
+<ul>
+<li>a link to the workshop website,</li>
+<li>the last ARR submission date</li>
+<li>the last commitment date</li>
+</ul>
+</li>
+<li>Hybrid: a combination of OpenReview and ARR, or Softconf and ARR</li>
+</ul>
+</li>
+<li>Check the information on the conference website and notify the workshop chairs if it needs updating</li>
+<li>If you have sponsors,
+<ul>
+<li>To generate an invoice, email Chris Callison-Burch the following information:
+<ul>
+<li>What company is sponsoring the workshop (CC your contact in the company)</li>
+<li>The name of your workshop</li>
+<li>How much money are they contributing to the workshop?</li>
+</ul>
+</li>
+<li>Instruct Jennifer Rachford how to make the payments from the sponsors</li>
+</ul>
+</li>
+<li>Select one invited speaker who will be waived registration fees for the conferences and the workshops (or more if you have sponsorship and would like to use it to cover registrations)</li>
+<li>Select Findings papers for presentation and contact the authors to confirm with them and ensure they upload the required materials</li>
+<li>Add the required information to your metadata repository and ensure your proceedings compile with <code>aclpub2</code> and that the output looks OK</li>
+</ul>
+<h2 id="timeline-1"><a class="header" href="#timeline-1">Timeline</a></h2>
+<p>The timeline will vary from year to year. This was the EMNLP 2022 timeline:</p>
+<ul>
+<li>September 23, 2021: First call for submission of workshop proposals for ACL/NAACL-HLT/COLING/EMNLP 2022</li>
+<li>October 20, 2021: Deadline for submission of workshop proposals</li>
+<li>November 20, 2021: Notification of acceptance of workshops</li>
+<li>July 15, 2022: Last <a href="https://aclrollingreview.org/six-week-cycles/">ARR submission deadline</a> for workshop papers </li>
+<li>September 7, 2022: Workshop paper direct submission deadline</li>
+<li>October 2, 2022: Last ARR commitment deadline for workshop papers</li>
+<li>October 6, 2022: Workshop organizers receive list of Findings of EMNLP papers (150-200) to possibly be presented at workshops</li>
+<li>October 9, 2022: Workshop paper notification deadline</li>
+<li>October 16, 2022: Workshop paper camera ready deadline</li>
+<li>October 20, 2022: Deadline for assigning Findings of EMNLP papers to be presented at workshops</li>
+<li>October 24, 2022: Workshop schedule deadline; deadline for assembly of handbook materials</li>
+<li>November 16, 2022: Workshop proceeding deadline; deadline for uploading presentation contents by authors</li>
+<li>December 7-8, 2022: EMNLP 2022 workshops and tutorials</li>
+</ul>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p><a href="https://www.aclweb.org/adminwiki/index.php?title=Workshop_chair_duties">Workshop chair duties, ACL Wiki</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="miniconf-for-conference-website"><a class="header" href="#miniconf-for-conference-website">Miniconf for Conference Website</a></h1>
+<p>Miniconf has been used by several ACL conferences.
+This guide shows future organizers how to use adapt prior iterations of acl_miniconf for future conferences and was written while adapting the EMNLP 2020 site for ACL 2023.</p>
+<p>In this guide, the <code>conference</code> site refers to the webpage with important dates, registration, and organizers. This page is available long before the conference, e.g., for ACL 2023 https://2023.aclweb.org/, but does not contain the proceedings. The <code>virtual</code> site refers to what is built with miniconf, and hosts the site that participants will use during the conference.</p>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<ol>
+<li>Create a new GitHub repository, which is where the conference site will reside</li>
+<li>Clone the prior conference site, e.g., https://github.com/EntilZha/acl-miniconf</li>
+<li>Push the prior conference site to the empty github repository. Do not create a fork. Github does not allow issues on forks and several other Github features are disabled on forks.</li>
+</ol>
+<h2 id="what-to-change"><a class="header" href="#what-to-change">What to change?</a></h2>
+<p>To update the site, be sure to change these files appropriately:</p>
+<h3 id="conference-theming"><a class="header" href="#conference-theming">Conference Theming</a></h3>
+<ul>
+<li><code>sitedata/config.yml</code>: Contains general links and resources (e.g., conference logo)</li>
+</ul>
+<h3 id="hand-curated-files"><a class="header" href="#hand-curated-files">Hand-Curated Files</a></h3>
+<p>For things like committee members, it is easier to create these files by hand (e.g., by pull request), rather than auto-generate them.</p>
+<ul>
+<li><code>sitedata/committee.yml</code>: This file can be copied from the corresponding file on the conference site. For example, from here https://github.com/acl-org/acl-2023/blob/main/_data/authors.yml</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
